@@ -281,7 +281,7 @@ export default class Pagination extends React.Component {
     let gotoButton = null;
 
     const goButton = (props.showQuickJumper && props.showQuickJumper.goButton);
-    const pageBufferSize = props.showLessItems ? 1 : 2;
+    const pageBufferSize = props.showLessItems ? 1 : 3;
     const { current, pageSize } = this.state;
 
     const prevPage = current - 1 > 0 ? current - 1 : 0;
@@ -430,7 +430,7 @@ export default class Pagination extends React.Component {
       let right = Math.min(current + pageBufferSize, allPages);
 
       if (current - 1 <= pageBufferSize) {
-        right = 1 + pageBufferSize * 2;
+        right = 2 + pageBufferSize * 2;
       }
 
       if (allPages - current <= pageBufferSize) {
@@ -439,6 +439,7 @@ export default class Pagination extends React.Component {
 
       for (let i = left; i <= right; i++) {
         const active = current === i;
+        console.log(i)
         pagerList.push(
           <Pager
             locale={props.locale}
@@ -453,25 +454,27 @@ export default class Pagination extends React.Component {
           />
         );
       }
-
       if (current - 1 >= pageBufferSize * 2 && current !== 1 + 2) {
         pagerList[0] = React.cloneElement(pagerList[0], {
           className: `${prefixCls}-item-after-jump-prev`,
         });
         pagerList.unshift(jumpPrev);
+        console.log(1111)
       }
+      console.log(666, pagerList)
+      
       if (allPages - current >= pageBufferSize * 2 && current !== allPages - 2) {
-        pagerList[pagerList.length - 1] = React.cloneElement(pagerList[pagerList.length - 1], {
-          className: `${prefixCls}-item-before-jump-next`,
-        });
-        pagerList.push(jumpNext);
+        // pagerList[pagerList.length - 1] = React.cloneElement(pagerList[pagerList.length - 1], {
+        //   className: `${prefixCls}-item-before-jump-next`,
+        // });
+        // pagerList.push(jumpNext);
       }
 
       if (left !== 1) {
         pagerList.unshift(firstPager);
       }
       if (right !== allPages) {
-        pagerList.push(lastPager);
+        // pagerList.push(lastPager);
       }
     }
 

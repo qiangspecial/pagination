@@ -6,6 +6,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 ReactDOM.render(
-  <Pagination defaultCurrent={2} total={25} />,
+  <Pagination defaultCurrent={2} total={300} />,
   document.getElementById('__react-content')
 );
