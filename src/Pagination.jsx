@@ -281,7 +281,7 @@ export default class Pagination extends React.Component {
     let gotoButton = null;
 
     const goButton = (props.showQuickJumper && props.showQuickJumper.goButton);
-    const pageBufferSize = props.showLessItems ? 1 : 2;
+    const pageBufferSize = props.pageBufferSize || (props.showLessItems ? 1 : 2);
     const { current, pageSize } = this.state;
 
     const prevPage = current - 1 > 0 ? current - 1 : 0;
@@ -459,19 +459,20 @@ export default class Pagination extends React.Component {
         });
         pagerList.unshift(jumpPrev);
       }
-      
-      if (allPages - current >= pageBufferSize * 2 && current !== allPages - 2) {
-        // pagerList[pagerList.length - 1] = React.cloneElement(pagerList[pagerList.length - 1], {
-        //   className: `${prefixCls}-item-before-jump-next`,
-        // });
-        // pagerList.push(jumpNext);
+
+      const showJumpNext = props.showJumpNext;
+      if (showJumpNext && allPages - (current - 1) >= (pageBufferSize + 2) && current !== allPages - 2) {
+        pagerList[pagerList.length - 1] = React.cloneElement(pagerList[pagerList.length - 1], {
+          className: `${prefixCls}-item-before-jump-next`,
+        });
+        pagerList.push(jumpNext);
       }
 
       if (left !== 1) {
         pagerList.unshift(firstPager);
       }
-      if (right !== allPages) {
-        // pagerList.push(lastPager);
+      if (showJumpNext && right !== allPages) {
+        pagerList.push(lastPager);
       }
     }
 
