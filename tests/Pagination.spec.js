@@ -22,14 +22,14 @@ describe('Uncontrolled Pagination', () => {
 
   function shouldHighlightRight() {
     const pagers = TestUtils.scryRenderedDOMComponentsWithTag(pagination, 'li')
-            .filter(pager => pager.className.indexOf('rc-pagination-total-text') === -1);
+            .filter(pager => pager.className.indexOf('rc-pagination-enhance-total-text') === -1);
     const current2 = pagination.state.current;
     pagers.forEach((pager, index) => {
       // page starts from 1
       if (index === current2) {
-        expect(pager.className).to.contain('rc-pagination-item-active');
+        expect(pager.className).to.contain('rc-pagination-enhance-item-active');
       } else {
-        expect(pager.className).to.not.contain('rc-pagination-item-active');
+        expect(pager.className).to.not.contain('rc-pagination-enhance-item-active');
       }
     });
   }
@@ -63,10 +63,10 @@ describe('Uncontrolled Pagination', () => {
   it('prev-button should be disabled', () => {
     const prevButton = TestUtils.findRenderedDOMComponentWithClass(
       pagination,
-      'rc-pagination-prev'
+      'rc-pagination-enhance-prev'
     );
     expect(TestUtils.isDOMComponent(prevButton)).to.be(true);
-    expect(prevButton.className).to.contain('rc-pagination-disabled');
+    expect(prevButton.className).to.contain('rc-pagination-enhance-disabled');
     expect(prevButton.getAttribute('aria-disabled')).to.equal('true');
   });
 
@@ -74,8 +74,8 @@ describe('Uncontrolled Pagination', () => {
 
   it('should calc page right', () => {
     const pagers = TestUtils.scryRenderedDOMComponentsWithTag(pagination, 'li')
-            .filter(pager => pager.className.indexOf('rc-pagination-total-text') === -1)
-            .filter(pager => pager.className.indexOf('rc-pagination-options') === -1);
+            .filter(pager => pager.className.indexOf('rc-pagination-enhance-total-text') === -1)
+            .filter(pager => pager.className.indexOf('rc-pagination-enhance-options') === -1);
     const knownPageCount = 3;
     const buttonLength = 2;
     expect(pagers.length).to.be(knownPageCount + buttonLength);
@@ -84,20 +84,20 @@ describe('Uncontrolled Pagination', () => {
   it('next button should not be disabled', () => {
     const nextButton = TestUtils.findRenderedDOMComponentWithClass(
       pagination,
-      'rc-pagination-next'
+      'rc-pagination-enhance-next'
     );
 
     expect(TestUtils.isDOMComponent(nextButton)).to.be(true);
-    expect(nextButton.className).to.not.contain('rc-pagination-disabled');
+    expect(nextButton.className).to.not.contain('rc-pagination-enhance-disabled');
     expect(nextButton.getAttribute('aria-disabled')).to.equal('false');
   });
 
   it('should response mouse click right', (done) => {
-    const pagers = TestUtils.scryRenderedDOMComponentsWithClass(pagination, 'rc-pagination-item');
+    const pagers = TestUtils.scryRenderedDOMComponentsWithClass(pagination, 'rc-pagination-enhance-item');
     expect(pagers.length).to.be(3);
     const page2 = pagers[1];
     expect(TestUtils.isDOMComponent(page2)).to.be(true);
-    expect(page2.className).to.contain('rc-pagination-item-2');
+    expect(page2.className).to.contain('rc-pagination-enhance-item-2');
 
     Simulate.click(page2);
     setTimeout(() => {
@@ -112,7 +112,7 @@ describe('Uncontrolled Pagination', () => {
   it('should response next page', (done) => {
     const nextButton = TestUtils.findRenderedDOMComponentWithClass(
       pagination,
-      'rc-pagination-next'
+      'rc-pagination-enhance-next'
     );
     expect(TestUtils.isDOMComponent(nextButton)).to.be(true);
     Simulate.click(nextButton);
@@ -127,7 +127,7 @@ describe('Uncontrolled Pagination', () => {
   it('should quick jump to expect page', (done) => {
     const quickJumper = TestUtils.findRenderedDOMComponentWithClass(
       pagination,
-      'rc-pagination-options-quick-jumper'
+      'rc-pagination-enhance-options-quick-jumper'
     );
     const input = quickJumper.querySelector('input');
     const goButton = quickJumper.querySelector('button');
@@ -150,13 +150,13 @@ describe('Uncontrolled Pagination', () => {
   it('should display total items', () => {
     const totalText = TestUtils.findRenderedDOMComponentWithClass(
       pagination,
-      'rc-pagination-total-text'
+      'rc-pagination-enhance-total-text'
     );
     expect(TestUtils.isDOMComponent(totalText)).to.be(true);
     expect(totalText.innerHTML).to.be('1 - 10 of 25 items');
     const nextButton = TestUtils.findRenderedDOMComponentWithClass(
       pagination,
-      'rc-pagination-next'
+      'rc-pagination-enhance-next'
     );
     Simulate.click(nextButton);
     setTimeout(() => {
@@ -203,7 +203,7 @@ describe('Controlled Pagination', () => {
   it('should not response mouse click', (done) => {
     const nextButton = TestUtils.findRenderedDOMComponentWithClass(
       pagination,
-      'rc-pagination-next'
+      'rc-pagination-enhance-next'
     );
     expect(TestUtils.isDOMComponent(nextButton)).to.be(true);
     Simulate.click(nextButton);
@@ -280,23 +280,23 @@ describe('Other props', () => {
   it('should support custom itemRender', () => {
     const prev = TestUtils.findRenderedDOMComponentWithClass(
       pagination,
-      'rc-pagination-prev'
+      'rc-pagination-enhance-prev'
     );
     const next = TestUtils.findRenderedDOMComponentWithClass(
       pagination,
-      'rc-pagination-next'
+      'rc-pagination-enhance-next'
     );
     const jumpPrev = TestUtils.findRenderedDOMComponentWithClass(
       pagination,
-      'rc-pagination-jump-prev'
+      'rc-pagination-enhance-jump-prev'
     );
     const jumpNext = TestUtils.findRenderedDOMComponentWithClass(
       pagination,
-      'rc-pagination-jump-next'
+      'rc-pagination-enhance-jump-next'
     );
     const active = TestUtils.findRenderedDOMComponentWithClass(
       pagination,
-      'rc-pagination-item-active'
+      'rc-pagination-enhance-item-active'
     );
     expect(prev.innerHTML).to.be(`<a href="#${currentPage - 1}">${currentPage - 1}</a>`);
     expect(next.innerHTML).to.be(`<a href="#${currentPage + 1}">${currentPage + 1}</a>`);

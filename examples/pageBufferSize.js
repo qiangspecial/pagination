@@ -17,15 +17,12 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Pagination
-          onChange={this.onChange}
-          current={this.state.current}
-          total={80}
-          showLessItems
-        />
-        <Pagination showLessItems defaultCurrent={1} total={60} />
+        <Pagination onChange={this.onChange} pageBufferSize={2} current={this.state.current} total={1000} />
+        <Pagination onChange={this.onChange} pageBufferSize={3} current={this.state.current} total={1000} />
+        <Pagination onChange={this.onChange} pageBufferSize={4} current={this.state.current} total={1000} />
+        <Pagination onChange={this.onChange} pageBufferSize={5} current={this.state.current} total={1000} />
       </div>
-    );
+    )
   }
 }
 

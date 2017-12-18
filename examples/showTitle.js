@@ -1,8 +1,8 @@
 /* eslint func-names: 0, no-console: 0 */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Pagination from 'rc-pagination';
-import 'rc-pagination/assets/index.less';
+import Pagination from 'rc-pagination-enhance';
+import 'rc-pagination-enhance/assets/index.less';
 
 class App extends React.Component {
   state = {

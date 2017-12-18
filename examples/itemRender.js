@@ -1,5 +1,5 @@
-import 'rc-pagination/assets/index.less';
-import Pagination from 'rc-pagination';
+import 'rc-pagination-enhance/assets/index.less';
+import Pagination from 'rc-pagination-enhance';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -22,7 +22,7 @@ const textItemRender = (current, type, element) => {
 
 ReactDOM.render(
   <div>
-    <Pagination total={1000} pageBufferSize={4} showJumpNext={false} itemRender={itemRender} />
+    <Pagination total={100} itemRender={itemRender} />
     <Pagination total={100} itemRender={textItemRender} />
   </div>
 , document.getElementById('__react-content'));

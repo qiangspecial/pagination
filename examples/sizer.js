@@ -2,8 +2,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Select from 'rc-select';
-import Pagination from 'rc-pagination';
-import 'rc-pagination/assets/index.less';
+import Pagination from 'rc-pagination-enhance';
+import 'rc-pagination-enhance/assets/index.less';
 import 'rc-select/assets/index.css';
 
 class Hello extends React.Component {

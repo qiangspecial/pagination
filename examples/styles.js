@@ -1,5 +1,5 @@
-import 'rc-pagination/assets/index.less';
-import Pagination from 'rc-pagination';
+import 'rc-pagination-enhance/assets/index.less';
+import Pagination from 'rc-pagination-enhance';
 import React from 'react';
 import ReactDOM from 'react-dom';
 

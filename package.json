@@ -1,6 +1,6 @@
 {
   "name": "rc-pagination-enhance",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "pagination ui component for react",
   "keywords": [
     "react",
@@ -29,7 +29,7 @@
   "config": {
     "port": 3000,
     "entry": {
-      "rc-pagination": [
+      "rc-pagination-enhance": [
         "./src/index.js",
         "./assets/index.less"
       ]

@@ -15,7 +15,7 @@ class App extends React.Component {
     });
   }
   render() {
-    return <Pagination onChange={this.onChange} current={this.state.current} total={25} />;
+    return <Pagination onChange={this.onChange} showJumpNext={false} current={this.state.current} total={100} />;
   }
 }
 

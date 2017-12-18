@@ -1,4 +1,4 @@
-# rc-pagination-enhance
+# rc-pagination-enhance-enhance
 ---
 
 forked from [react-component/pagination](https://github.com/react-component/pagination)@1.12.11
@@ -17,8 +17,8 @@ React Pagination Component.
 [![node version][node-image]][node-url]
 [![npm download][download-image]][download-url]
 
-[npm-image]: http://img.shields.io/npm/v/rc-pagination.svg?style=flat-square
-[npm-url]: http://npmjs.org/package/rc-pagination
+[npm-image]: http://img.shields.io/npm/v/rc-pagination-enhance.svg?style=flat-square
+[npm-url]: http://npmjs.org/package/rc-pagination-enhance
 [travis-image]: https://img.shields.io/travis/react-component/pagination.svg?style=flat-square
 [travis-url]: https://travis-ci.org/react-component/pagination
 [coveralls-image]: https://img.shields.io/coveralls/react-component/pagination.svg?style=flat-square
@@ -27,8 +27,8 @@ React Pagination Component.
 [gemnasium-url]: https://gemnasium.com/react-component/pagination
 [node-image]: https://img.shields.io/badge/node.js-%3E=_0.10-green.svg?style=flat-square
 [node-url]: http://nodejs.org/download/
-[download-image]: https://img.shields.io/npm/dm/rc-pagination.svg?style=flat-square
-[download-url]: https://npmjs.org/package/rc-pagination
+[download-image]: https://img.shields.io/npm/dm/rc-pagination-enhance.svg?style=flat-square
+[download-url]: https://npmjs.org/package/rc-pagination-enhance
 
 ## Development
 
@@ -49,12 +49,12 @@ online example: http://react-component.github.io/pagination/examples/
 
 ## Install
 
-[![rc-pagination](https://nodei.co/npm/rc-pagination.png)](https://npmjs.org/package/rc-pagination)
+[![rc-pagination-enhance](https://nodei.co/npm/rc-pagination-enhance.png)](https://npmjs.org/package/rc-pagination-enhance)
 
 ## Usage
 
 ```js
-var Pagination = require('rc-pagination');
+var Pagination = require('rc-pagination-enhance');
 var React = require('react');
 React.render(<Pagination />, container);
 ```
@@ -86,4 +86,4 @@ React.render(<Pagination />, container);
 
 ## License
 
-rc-pagination is released under the MIT license.
+rc-pagination-enhance is released under the MIT license.
