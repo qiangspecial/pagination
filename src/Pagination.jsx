@@ -281,7 +281,7 @@ export default class Pagination extends React.Component {
     let gotoButton = null;
 
     const goButton = (props.showQuickJumper && props.showQuickJumper.goButton);
-    const pageBufferSize = props.showLessItems ? 1 : 3;
+    const pageBufferSize = props.showLessItems ? 1 : 4;
     const { current, pageSize } = this.state;
 
     const prevPage = current - 1 > 0 ? current - 1 : 0;
@@ -426,7 +426,7 @@ export default class Pagination extends React.Component {
         />
       );
 
-      let left = Math.max(1, current - pageBufferSize);
+      let left = Math.max(1, current - pageBufferSize + 1);
       let right = Math.min(current + pageBufferSize, allPages);
 
       if (current - 1 <= pageBufferSize) {
@@ -454,7 +454,11 @@ export default class Pagination extends React.Component {
           />
         );
       }
-      if (current - 1 >= pageBufferSize * 2 && current !== 1 + 2) {
+      // current - 1 >= 4 && current !== 3 // 4
+      // current - 1 >= 2 && current !== 3 // 2
+      // 6
+      // current - 1 >= 8 && current !== 3
+      if (current - 1 >= (pageBufferSize + 2) && current !== 1 + 2) {
         pagerList[0] = React.cloneElement(pagerList[0], {
           className: `${prefixCls}-item-after-jump-prev`,
         });
