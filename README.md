@@ -3,7 +3,7 @@
 
 forked from [react-component/pagination](https://github.com/react-component/pagination)@1.12.11
 
-#### New feature
+## New feature
 
 - pageBufferSize：set page items, it's like `showLessItems`, but more freedom
 - showJumpNext：show next jumper, defaultValue is `true`, Meet the ban on direct jump to the last page needs
